@@ -4,6 +4,7 @@ function App() {
   return (
     <div className="App">
        Selam First Project! 
+       And Ace is helping too.
     </div>
   );
 }
