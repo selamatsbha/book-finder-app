@@ -1,0 +1,14 @@
+.div {
+    display: grid;
+    margin: 2px;
+    border: 0.5px solid black;
+    float: left;
+    width: 24%;
+  }
+  
+  
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  
