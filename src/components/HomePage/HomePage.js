@@ -2,11 +2,11 @@ import Home from "../Home/Home";
 import Search from "../Search/Search";
 import "./HomePage.css";
 
-export default function HomePage({ setInputValue, handleSearch }) {
+export default function HomePage() {
   return (
     <div className="home-page">
       <Home />
-      <Search setInputValue={setInputValue} handleSearch={handleSearch} />
+      <Search/>
     </div>
   );
 }

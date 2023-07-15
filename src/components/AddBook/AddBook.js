@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./AddBook.css";
+import { BookContext } from "../../BookAppContext";
 
-export default function AddBook(props) {
+export default function AddBook() {
+  const { setBookData, bookData } = useContext(BookContext);
   const [inputValue, setInputValue] = useState({
     image: "",
     bookName: "",
@@ -33,7 +35,7 @@ export default function AddBook(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.setBookData([...props.bookData, inputValue]);
+    setBookData([...bookData, inputValue]);
     setShowSuccessAlert(true);
   };
 

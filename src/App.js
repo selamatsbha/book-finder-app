@@ -1,10 +1,9 @@
 import "./App.css";
-import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePagePage from "./pages/HomePagePage";
 import AddBookPage from "./pages/AddBookPage";
 import BooksPage from "./pages/BooksPage";
-// import axios from "axios";
+import { BookProvider } from "./BookAppContext";
 
 // const data = [
 //   {
@@ -59,85 +58,15 @@ import BooksPage from "./pages/BooksPage";
 // ];
 
 function App() {
-  const [bookData, setBookData] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
-  // const [loading, setLoading] = useState(true);
-
-  const apiUrl = "http://localhost:2000/api/book/get-books";
-
-  const getAllBooks = async () => {
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response) {
-          throw new Error("something went wrong");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("data", data);
-        setBookData(data);
-      })
-      .catch((error) => {
-        setError("error");
-      });
-  };
-
-  // async function getBook() {
-  //   try {
-  //     const response = await axios.get(apiUrl);
-  //     const data = await response.data;
-  //     setBookData(data);
-  //     // setBookDetail(data[0]);
-  //     // setIsLoading(false);
-  //     console.log("data", data);
-  //   } catch (error) {
-  //     // setIsError(true);
-  //   }
-  // }
-
-  useEffect(() => {
-    getAllBooks();
-  }, [error]);
-
-  const handleSearch = () => {
-    const filteredData = bookData.filter(({ name }) => {
-      return name === inputValue;
-    });
-    setBookData(filteredData);
-  };
-
   return (
-    // <div className="App">
-    //   <NavBar />
-    //   <HomePage setInputValue={setInputValue} handleSearch={handleSearch} />
-    //   <Wrapper>
-    //     <Books bookData={bookData} />
-    //     <AddBook bookData={bookData} setBookData={setBookData} />
-    //   </Wrapper>
-    // </div>
     <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePagePage
-              setInputValue={setInputValue}
-              handleSearch={handleSearch}
-            />
-          }
-        />
-        <Route
-          path="/book"
-          element={<BooksPage error={error} bookData={bookData} />}
-        />
-        <Route
-          path="/add-book"
-          element={
-            <AddBookPage bookData={bookData} setBookData={setBookData} />
-          }
-        />
-      </Routes>
+      <BookProvider>
+        <Routes>
+          <Route path="/" element={<HomePagePage />} />
+          <Route path="/book" element={<BooksPage />} />
+          <Route path="/add-book" element={<AddBookPage />} />
+        </Routes>
+      </BookProvider>
     </div>
   );
 }

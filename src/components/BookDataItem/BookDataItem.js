@@ -1,13 +1,16 @@
 import "./BookDataItem.css";
+import { useContext } from "react";
+import { BookContext } from "../../BookAppContext";
 
-export default function BookDataItem({ bookData }) {
+export default function BookDataItem() {
+  const { bookData } = useContext(BookContext);
   return (
     <>
-      {bookData.map(({ image_url, title, authors }, index) => {
+      {bookData.map(({ imageUrl, title, authors }, index) => {
         return (
           <>
             <div className="div" key={index}>
-              <img src={image_url} alt="Pic here" />
+              <img src={imageUrl} alt="Pic here" />
               <div>
                 <p>{title}</p>
                 <h4>{authors}</h4>

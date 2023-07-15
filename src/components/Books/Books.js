@@ -1,10 +1,13 @@
 import BookData from "../BookData/BookData";
+import { useContext } from "react";
+import { BookContext } from "../../BookAppContext";
 
-export default function Books(props) {
+export default function Books() {
+  const { isError } = useContext(BookContext);
   return (
     <>
-      {props.error !== "" && <p style={{ color: "red" }}>{props.error}</p>}
-      <BookData bookData={props.bookData} />
+      {isError !== false && <p style={{ color: "red" }}>Server error</p>}
+      <BookData />
     </>
   );
 }

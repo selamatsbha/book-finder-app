@@ -1,10 +1,10 @@
 import React from "react";
 import BookDataItem from "../BookDataItem/BookDataItem";
 
-export default function BookData(props) {
+export default function BookData() {
   return (
     <>
-      <BookDataItem bookData={props.bookData} />
+      <BookDataItem />
     </>
   );
 }
