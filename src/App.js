@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePagePage from "./pages/HomePagePage";
 import AddBookPage from "./pages/AddBookPage";
 import BooksPage from "./pages/BooksPage";
-import axios from "axios";
+// import axios from "axios";
 
 // const data = [
 //   {
@@ -62,7 +62,7 @@ function App() {
   const [bookData, setBookData] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const apiUrl = "http://localhost:2000/api/book/get-books";
 
