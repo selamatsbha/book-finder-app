@@ -4,7 +4,7 @@ import { BookContext } from "../../BookAppContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDisplay, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function BookDataItem() {
   const { bookData, setBookData } = useContext(BookContext);
