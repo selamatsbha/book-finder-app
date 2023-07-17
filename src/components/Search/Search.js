@@ -3,6 +3,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { BookContext } from "../../BookAppContext";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const StyledSearch = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ const StyledSearch = styled.div`
 
 export default function Search() {
   const { setInputValue, handleSearch } = useContext(BookContext);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -22,8 +24,19 @@ export default function Search() {
 
   return (
     <StyledSearch>
-      <input type="text" style={{ flexGrow: 3 }} onChange={handleInputChange} />
-      <FontAwesomeIcon icon={faSearch} onClick={handleSearch} />
+      <input
+        type="text"
+        placeholder="Search book title"
+        style={{ flexGrow: 3 }}
+        onChange={handleInputChange}
+      />
+      <FontAwesomeIcon
+        icon={faSearch}
+        onClick={() => {
+          handleSearch();
+          navigate("/book");
+        }}
+      />
     </StyledSearch>
   );
 }

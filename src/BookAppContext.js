@@ -30,8 +30,8 @@ export const BookProvider = (props) => {
   }, []);
 
   const handleSearch = () => {
-    const filteredData = bookData.filter(({ name }) => {
-      return name === inputValue;
+    const filteredData = bookData.filter(({ title }) => {
+      return title === inputValue;
     });
     setBookData(filteredData);
   };

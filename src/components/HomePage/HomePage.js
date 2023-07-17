@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <Home />
-      <Search/>
+      <Search />
     </div>
   );
 }
