@@ -8,6 +8,7 @@ export const BookProvider = (props) => {
   const [inputValue, setInputValue] = useState("");
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [bookDetail, setBookDetail] = useState({});
 
   const apiUrl =
     "https://secure-brook-62379-c7cd88c1503e.herokuapp.com/api/book/get-books";
@@ -17,8 +18,8 @@ export const BookProvider = (props) => {
       const response = await axios.get(apiUrl);
       const data = await response.data;
       setBookData(data);
-      // setBookDetail(data[0]);
-      // setIsLoading(false);
+      setBookDetail(data[0]);
+      setIsLoading(false);
       console.log("data", data);
     } catch (error) {
       setIsError(true);
@@ -33,7 +34,7 @@ export const BookProvider = (props) => {
     const filteredData = bookData.filter(({ title }) => {
       return title === inputValue;
     });
-    setBookData(filteredData);
+    setBookDetail(filteredData[0]);
   };
 
   return (
@@ -48,6 +49,8 @@ export const BookProvider = (props) => {
         isLoading,
         setIsLoading,
         handleSearch,
+        bookDetail,
+        setBookDetail,
       }}
     >
       {props.children}

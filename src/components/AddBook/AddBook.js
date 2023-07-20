@@ -5,10 +5,10 @@ import { BookContext } from "../../BookAppContext";
 export default function AddBook() {
   const { setBookData, bookData } = useContext(BookContext);
   const [inputValue, setInputValue] = useState({
-    image: "",
-    bookName: "",
-    authorName: "",
-    publishedYear: "",
+    imageUrl: "",
+    title: "",
+    authors: "",
+    description: "",
   });
 
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
@@ -47,29 +47,29 @@ export default function AddBook() {
         <input
           type="text"
           placeholder="image"
-          value={inputValue.image}
-          name="image"
+          value={inputValue.imageUrl}
+          name="imageUrl"
           onChange={handleChange}
         />
         <input
           type="text"
-          placeholder="book name"
-          value={inputValue.bookName}
-          name="bookName"
+          placeholder="book title"
+          value={inputValue.title}
+          name="bookTitle"
           onChange={handleChange}
         />
         <input
           type="text"
           placeholder="author name"
-          value={inputValue.authorName}
-          name="authorName"
+          value={inputValue.authors}
+          name="authors"
           onChange={handleChange}
         />
         <input
           type="text"
-          placeholder="published year"
-          value={inputValue.publishedYear}
-          name="publishedYear"
+          placeholder="book description"
+          value={inputValue.description}
+          name="description"
           onChange={handleChange}
         />
         <button>Submit</button>

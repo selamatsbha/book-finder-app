@@ -9,9 +9,9 @@ const StyledSearch = styled.div`
   display: flex;
   flex-direction: row;
   gap: 5px;
-  // border: 0.5px solid black;
   width: 50%;
   margin: 0px 300px;
+  cursor: pointer;
 `;
 
 export default function Search() {
@@ -34,7 +34,7 @@ export default function Search() {
         icon={faSearch}
         onClick={() => {
           handleSearch();
-          navigate("/book");
+          navigate("/book-detail");
         }}
       />
     </StyledSearch>

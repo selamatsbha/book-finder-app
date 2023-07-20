@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <Fragment>
       <div className="nav">
-        <h4>Book Finder</h4>
+        <h3>Book Finder</h3>
         <ul>
           <li>
             <Link style={{ textDecoration: "none", color: "#fff" }} to="/">

@@ -1,4 +1,4 @@
-import BookData from "../BookData/BookData";
+import BookDataItem from "../BookDataItem/BookDataItem";
 import { useContext } from "react";
 import { BookContext } from "../../BookAppContext";
 
@@ -7,7 +7,7 @@ export default function Books() {
   return (
     <>
       {isError !== false && <p style={{ color: "red" }}>Server error</p>}
-      <BookData />
+      <BookDataItem />
     </>
   );
 }
