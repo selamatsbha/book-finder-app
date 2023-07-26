@@ -53,9 +53,9 @@ export default function AddBook() {
         />
         <input
           type="text"
-          placeholder="book title"
+          placeholder="Book title"
           value={inputValue.title}
-          name="bookTitle"
+          name="title"
           onChange={handleChange}
         />
         <input

@@ -78,8 +78,8 @@ export default function BookDetail() {
       });
   };
 
-  const handleEdit = (title) => {
-    const editBook = bookData.filter((book) => book.title === title);
+  const handleEdit = (id) => {
+    const editBook = bookData.filter((book) => book.id === id);
     setBookDetail(editBook);
   };
 
@@ -94,7 +94,7 @@ export default function BookDetail() {
             <FontAwesomeIcon
               icon={faPen}
               onClick={() => {
-                handleEdit();
+                handleEdit(setBookDetail);
                 navigate("/add-book");
               }}
             />
